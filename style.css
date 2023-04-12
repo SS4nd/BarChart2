@@ -1,0 +1,13 @@
+.barchart {
+    height: 650px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(40, 1fr);
+    gap: 1px;
+}
+
+.bar {
+    background-color: black;
+    outline: 1px;
+    height: 20px;
+}
