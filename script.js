@@ -8,12 +8,15 @@ function initApp() {
     for (var x = 0; x < 40; x++) {
         const bar = document.createElement('div');
         bar.className = "bar";
-        numbers.push(Math.floor(Math.random() * 300));
-        bar.style.height = numbers[numbers.length - 1].toString() + "px";
+        numbers.push(getNumberOfCustomers());
+        bar.style.height = numbers[numbers.length - 1].toString() + "%";
         grid.appendChild(bar);
     }
     change(numbers);
+}
 
+function getNumberOfCustomers() {
+    return Math.floor(Math.random() * 32);
 }
 
 function change(numbers) {
@@ -23,11 +26,11 @@ function change(numbers) {
     setInterval(function() {
         bars.forEach((b, i) => {
             try {
-                b.style.height = newNum[i].toString() + "px";
-                b.style.backgroundColor = `rgb(${newNum[i]/2}, ${newNum[i]/2}, ${newNum[i]/2})`;
+                b.style.height = newNum[i].toString() + "%";
+                b.style.backgroundColor = `rgb(${newNum[i]*4}, ${newNum[i]*4}, ${newNum[i]*4})`;
             } catch {
-                b.style.height = newNum[39].toString() + "px";
-                b.style.backgroundColor = `rgb(${newNum[39]/2}, ${newNum[39]/2}, ${newNum[39]/2})`;
+                b.style.height = newNum[39].toString() + "%";
+                b.style.backgroundColor = `rgb(${newNum[39]*4}, ${newNum[39]*4}, ${newNum[39]*4})`;
             }
         });
         newNum.push(newNum.shift());
